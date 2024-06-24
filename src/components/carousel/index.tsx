@@ -320,15 +320,18 @@ export const InfiniteHorizontalScroll = () => {
         {cards.concat(cards).map((card, index) => (
           <div
             key={index}
-            className={`inline-block flex-none w-64 h-96 ${card.color} p-4 rounded-lg shadow-lg`}
+            className={`inline-block flex-none w-64 h-96 p-4 rounded-lg shadow-lg`}
           >
             <div className="flex flex-col h-full justify-between">
               <div className={`${card.bg_color} text-lg font-bold mb-2`}>
                 {card.text}
               </div>
-              <img
-                src={card.imageUrl}
+              <Image
+                src={card.imageUrl ?? ""}
                 alt="Card"
+                width={1}
+                height={1}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="mt-auto h-2/3 object-contain"
               />
             </div>

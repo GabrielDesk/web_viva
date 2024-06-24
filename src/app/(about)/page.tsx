@@ -8,6 +8,14 @@ import { BIZ_UDGothic } from "next/font/google";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 const bIZ_UDGothic = BIZ_UDGothic({ subsets: ["latin"], weight: "400" });
+interface ICardTo {
+  text: string;
+  description?: string;
+  imageUrl?: string | StaticImageData;
+  second_imageUrl?: string | StaticImageData | StaticImport;
+  bg_color?: string;
+  shouldHaveQuotes: boolean;
+}
 
 export default function Home() {
   const arrCardTo: ICardTo[] = [
@@ -327,7 +335,7 @@ export default function Home() {
                   width={1}
                   height={1}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="relative h-full w-[70%] object-cover  top-[15px] md:-top-[1%] md:-left-[1%] md:w-full"
+                  className="relative h-full w-full object-cover rounded-3xl top-[15px]  -left-12 md:-top-[1%] md:-left-[1%] md:w-full"
                 />
               </div>
             </div>
@@ -351,7 +359,7 @@ export default function Home() {
                 <Image
                   src={arrCardTo[0].imageUrl ?? ""}
                   alt="viva taekwondo"
-                  className="w-[30%] h-[20%] object-cover rounded-full md:w-[40%] md:h-[30%]"
+                  className="w-[35%] h-[15%] object-cover rounded-full md:w-[40%] md:h-[30%]"
                 />
                 <Image
                   src={arrCardTo[0].second_imageUrl ?? logo_viva}
@@ -359,7 +367,7 @@ export default function Home() {
                   width={1}
                   height={1}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="relative h-full w-[70%] object-cover  top-[15px] md:-top-[1%] md:-left-[1%] md:w-full"
+                  className="relative h-full w-full object-cover rounded-3xl top-[15px]  -left-[52px] md:-top-[1%] md:-left-[1%] md:w-full"
                 />
               </div>
             </div>
@@ -383,7 +391,7 @@ export default function Home() {
                 <Image
                   src={arrCardTo[2].imageUrl ?? ""}
                   alt="viva taekwondo"
-                  className="w-[30%] h-[20%] object-cover rounded-full md:w-[40%] md:h-[30%]"
+                  className="w-[35%] h-[15%] object-cover rounded-full md:w-[40%] md:h-[30%]"
                 />
                 <Image
                   src={arrCardTo[2].second_imageUrl ?? logo_viva}
