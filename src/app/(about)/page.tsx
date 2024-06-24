@@ -8,16 +8,17 @@ import { BIZ_UDGothic } from "next/font/google";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 const bIZ_UDGothic = BIZ_UDGothic({ subsets: ["latin"], weight: "400" });
-interface ICardTo {
-  text: string;
-  description?: string;
-  imageUrl?: string | StaticImageData;
-  second_imageUrl?: string | StaticImageData | StaticImport;
-  bg_color?: string;
-  shouldHaveQuotes: boolean;
-}
 
 export default function Home() {
+  interface ICardTo {
+    text: string;
+    description?: string;
+    imageUrl?: string | StaticImageData;
+    second_imageUrl?: string | StaticImageData | StaticImport;
+    bg_color?: string;
+    shouldHaveQuotes: boolean;
+  }
+
   const arrCardTo: ICardTo[] = [
     {
       text: "Nosso propósito é ajudar quem mais precisa. E o seu?",
