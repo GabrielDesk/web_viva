@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --foreground-rgb: 0, 0, 0; */
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    /* --background-start-rgb: 0, 0, 0; */
+    /* --background-end-rgb: 0, 0, 0; */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Personalização para Chrome, Edge, e Safari */
+::-webkit-scrollbar {
+  width: 16px; /* Ajuste a largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  /* background: rgba(135, 16, 16, 0.5); */
+  /* backdrop-filter: blur(10px); Aplicando blur ao fundo da trilha */
+  /* border: 5rem; */
+  border-width: 0px;
+  border: 2px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #435d84; /* Cor do thumb com transparência */
+  border-radius: 6.5px;
+  border: 4px solid transparent; /* Bordas transparentes */
+  background-clip: padding-box; /* Evita que o fundo se estenda para a borda */
+}

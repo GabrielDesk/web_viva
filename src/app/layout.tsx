@@ -1,8 +1,39 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Sora } from "next/font/google";
+import localfont from "next/font/local";
+import "../../globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const sora = Sora({ subsets: ["latin"] });
+
+const clash = localfont({
+  src: [
+    {
+      path: "../../public/fonts/ClashDisplayBold.otf",
+      weight: "700",
+    },
+    {
+      path: "../../public/fonts/ClashDisplaySemibold.otf",
+      weight: "600",
+    },
+    {
+      path: "../../public/fonts/ClashDisplayMedium.otf",
+      weight: "500",
+    },
+    {
+      path: "../../public/fonts/ClashDisplayRegular.otf",
+      weight: "400",
+    },
+    {
+      path: "../../public/fonts/ClashDisplayLight.otf",
+      weight: "300",
+    },
+    {
+      path: "../../public/fonts/ClashDisplayExtralight.otf",
+      weight: "200",
+    },
+  ],
+  variable: "--font-clash",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${clash.variable}`}>{children}</body>
     </html>
   );
 }
