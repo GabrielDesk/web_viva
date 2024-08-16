@@ -17,14 +17,17 @@ const config: Config = {
       colors: {
         background: "#FFFF",
         fisrt_color: "#E1E2F3",
-        second_color: "##F97D36",
+        second_color: "##f97d36",
         pallet_navy_blue: "#113065",
         pallet_yellow: "#c3d91e",
         pallet_orange: "#f29f05",
-        pallet_green: "#749F82",
-        pallet_beige: "#EEEEE2",
+        pallet_green: "#749f82",
+        pallet_beige: "#eeeee2",
         pallet_salmon: "#f25749",
-        pallet_bg_logo: "#12376D",
+        pallet_bg_logo: "#12376d",
+        pallet_bg_gold_don: "#f8e231",
+        pallet_bg_silver_don: "#b1b1b1",
+        pallet_bg_bronze_don: "#cd7F32",
       },
       backdropFilter: {
         none: "none",
@@ -58,14 +61,34 @@ const config: Config = {
         "2xl": "1536px",
         // => @media (min-width: 1536px) { ... }
       },
-      keyframes: keyframes,
+      keyframes: {
+        ...keyframes,
+        don_animation_down: {
+          "0%": { transform: "translateY(0) translateX(-1.5rem)" },
+          // "50%": { transform: "translateY(-1.5rem)" },
+          "100%": { transform: "translateY(8rem) translateX(-1.5rem)" },
+        },
+        don_animation_up: {
+          "0%": { transform: "translateY(8rem) translateX(-1rem)" },
 
-      animation: animations,
+          "100%": { transform: "translateY(-1rem) translateX(-1rem)" },
+        },
+      },
+
+      animation: {
+        ...animations,
+        don_animation_up: "don_animation_up 0.9s ease-out",
+        don_animation_down: "don_animation_down 0.9s ease-out",
+      },
 
       transitionDelay: animationDelay,
 
       fontFamily: {
         clash: ["var(--font-clash)"],
+      },
+
+      touchScreen: {
+        deslize: "touchmove",
       },
     },
   },

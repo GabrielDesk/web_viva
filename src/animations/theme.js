@@ -74,6 +74,7 @@ export const animations = {
   "pulse-fade-in": "pulse-fade-in 0.6s ease-out both",
   "impulse-rotation-right": "impulse-rotation-right 1s ease-in-out both",
   "impulse-rotation-left": "impulse-rotation-left 1s ease-in-out both",
+  donationSlideNext: "donationSlideNext 1s ease-in-out both",
   dancing: "dancing 1s ease-in-out both",
   pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
 };
@@ -139,6 +140,11 @@ export const keyframes = {
   swing: {
     "0%": { transform: "rotate(0deg)" },
     "50%": { transform: "rotate(15deg)" },
+    "100%": { transform: "rotate(0deg)" },
+  },
+  inverseSwing: {
+    "0%": { transform: "rotate(0deg)" },
+    "50%": { transform: "rotate(-15deg)" },
     "100%": { transform: "rotate(0deg)" },
   },
   wobble: {
@@ -437,6 +443,11 @@ export const keyframes = {
     "50%": { transform: "skew(40deg)" },
     "75%": { transform: "skew(-40deg)" },
     "100%": { transform: "skew(0deg)" },
+  },
+  donationSlideNext: {
+    "0%": { transform: "rotate(0deg) translateX(0)" },
+    "50%": { transform: "rotate(40deg) translateY(-100%)" },
+    "100%": { transform: "rotate(-360deg)" },
   },
 };
 
