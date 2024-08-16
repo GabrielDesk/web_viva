@@ -19,5 +19,9 @@
   "cardText3": "Nosso propósito é ajudar quem mais precisa. E o seu?",
   "cardText4": "Nosso propósito é ajudar quem mais precisa. E o seu?",
   "title4": "Seja um Agente Transformador e Apoie o VIVA!",
-  "subtitle4": "Junte-se à nossa missão de transformar vidas e fazer a diferença no mundo. <b>Seja um agente de mudança</b> e ajude a criar um futuro melhor para a <b>osc.</b>"
+  "subtitle4": "Junte-se à nossa missão de transformar vidas e fazer a diferença no mundo. <b>Seja um agente de mudança</b> e ajude a criar um futuro melhor para a <b>osc.</b>",
+  "465dayschangingLifes": "{{days}} dias mudando vidas",
+  "since2019": "Desde {{sinceYear}}",
+  "currentGraph": "<b>{{graphYear}}</b> - {{lives}} pessoas transformadas",
+  "lastGraph": "<u>{{latestYear}}</u> - {{lives}} pessoas transformadas"
 }

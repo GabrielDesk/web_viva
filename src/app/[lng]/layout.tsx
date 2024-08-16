@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }));
+  return languages.map((lng) => lng);
 }
 
 interface IParamsType {
@@ -61,9 +61,8 @@ export default function RootLayout({
   return (
     <html lang={lng}>
       {/* <html lang={lng} dir={dir(lng)}> */}
-      <head>
-        <body className={`${clash.variable}`}>{children}</body>
-      </head>
+      <head></head>
+      <body className={`${clash.variable}`}>{children}</body>
     </html>
   );
 }

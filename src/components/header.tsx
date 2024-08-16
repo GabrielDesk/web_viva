@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       const storedLanguage = await getStorageData({
         id: EAsyncStorageState.STORAGE_LANGUAGE,
       });
-      console.log(storedLanguage);
+      // console.log(storedLanguage);
 
       if (
         storedLanguage &&
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
       id: EAsyncStorageState.STORAGE_LANGUAGE,
       value: language,
     });
-    console.log({ language });
+    // console.log({ language });
     // setThemeLanguage(language);
   }
 
@@ -146,7 +146,7 @@ const Header: React.FC = () => {
                     <button
                       onClick={() => {
                         handleCurrentLanguage(item.language);
-                        console.log(item);
+                        // console.log(item);
                       }}
                       className="cursor-pointer md:w-full shadow-sm rounded-lg z-20"
                     >

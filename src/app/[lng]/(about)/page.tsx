@@ -32,17 +32,14 @@ interface ICardTo {
 }
 
 interface IParamsType {
-  params: {
-    lng: string;
-  };
+  lng: string;
 }
 /**
  *
  * @param lng
  * @returns /lng/page.tsx
  */
-export default function Home({ params }: IParamsType) {
-  const { lng } = params;
+export default function Home({ params: { lng } }: { params: IParamsType }) {
   const { t } = useTranslation(lng, "translation", undefined);
   const { getStorageData, setStorageData } = useAsyncStorage();
   // const { themeLanguage, setThemeLanguage } = useThemeLanguage();
@@ -53,9 +50,9 @@ export default function Home({ params }: IParamsType) {
     return element?.scrollIntoView({ behavior: "smooth" });
   }
 
-  useEffect(() => {
-    console.log({ lng });
-  }, [lng]);
+  // useEffect(() => {
+  //   console.log({ lng });
+  // }, [lng]);
 
   const DonationCarousel: React.ElementType = () => {
     interface cardDon {
@@ -130,9 +127,9 @@ export default function Home({ params }: IParamsType) {
 
     useEffect(() => {
       setCurrentDevice(device);
-      console.log(device);
-      console.log(currentIndex);
-      console.log(slideDirection);
+      // console.log(device);
+      // console.log(currentIndex);
+      // console.log(slideDirection);
     }, [currentIndex, slideDirection, device]);
 
     function onTouchStart(event: any) {
@@ -206,18 +203,18 @@ export default function Home({ params }: IParamsType) {
             {items.map((item, index) => (
               <>
                 <div
-                  key={item.id}
+                  key={index}
                   onMouseOver={() => {
                     device !== EDeviceScreen.computer
                       ? null
                       : setCurrentIndex(index);
-                    console.log(index, isSliding);
+                    // console.log(index, isSliding);
                   }}
                   onMouseLeave={() => {
                     device !== EDeviceScreen.computer
                       ? null
                       : setCurrentIndex(1);
-                    console.log(index, isSliding);
+                    // console.log(index, isSliding);
                   }}
                   className={` 
                   
@@ -570,15 +567,49 @@ export default function Home({ params }: IParamsType) {
                 <div className=" h-[70%] w-[100%] bg-white/30 backdrop-blur-sm border-4 flex flex-col items-end rounded-3xl">
                   {/* first */}
                   <div className=" md:h-[50%] h-[30%] w-[100%] items-end p-2 flex backdrop-blur-sm flex-row rounded-tl-2xl rounded-tr-2xl">
-                    <h1 className="text-black font-clash font-normal md:text-2xl text-1xl text-left">
-                      <b>2024</b> - 1820 pessoas transformadas
+                    <h1
+                      className="text-black font-clash font-normal md:text-2xl text-1xl text-left"
+                      dangerouslySetInnerHTML={{
+                        __html: t("currentGraph", {
+                          graphYear: 2019,
+                          lives: 1820,
+                        }),
+                      }}
+                    >
+                      {/* <b>2024</b> - 1820 pessoas transformadas */}
                     </h1>
+                    {/* <h1
+                      dangerouslySetInnerHTML={{
+                        __html: t("currentGraph", {
+                          graphYear: 2019,
+                          lives: 1820,
+                        }),
+                      }}
+                      className="text-black font-clash font-medium text-4xl  mobS:text-[2.5rem]  md:text-6xl"
+                    ></h1> */}
                   </div>
 
                   {/* second */}
                   <div className="md:h-[50%] h-[70%] w-[100%] bg-white/30 overflow-clip z-20 items-start justify-end p-2 flex backdrop-blur-sm flex-row rounded-br-2xl rounded-bl-2xl">
-                    <h1 className="text-black font-clash font-normal md:text-2xl  text-1xl text-right">
-                      <b>2019</b> - 200 pessoas transformadas
+                    {/* <h1
+                      dangerouslySetInnerHTML={{
+                        __html: t("currentGraph", {
+                          graphYear: 2019,
+                          lives: 200,
+                        }),
+                      }}
+                      className="text-black font-clash font-medium text-4xl  mobS:text-[2.5rem]  md:text-6xl"
+                    ></h1> */}
+                    <h1
+                      className="text-black font-clash font-normal md:text-2xl  text-1xl text-right"
+                      dangerouslySetInnerHTML={{
+                        __html: t("currentGraph", {
+                          graphYear: 2019,
+                          lives: 200,
+                        }),
+                      }}
+                    >
+                      {/* <b>2019</b> - 200 pessoas transformadas */}
                     </h1>
                   </div>
                 </div>
@@ -590,10 +621,12 @@ export default function Home({ params }: IParamsType) {
           </div>
           <div className=" md:h-[100%] h-1/2 w-full md:w-1/2 flex-col p-[5px] justify-end items-end flex rounded-3xl">
             <h1 className="text-black font-clash font-medium md:text-4xl text-3xl text-left">
-              São 465 dias transformando vidas!{" "}
+              {/* São 465 dias transformando vidas!{" "} */}
+              {t("465dayschangingLifes", { days: 2.054 })}
             </h1>
             <h1 className="text-black font-clash font-normal md:text-4xl text-3xl text-left">
-              Viva boa vista. Since 2019
+              {/* Viva boa vista. Since 2019 */}
+              {t("since2019", { sinceYear: 2019 })}
             </h1>
           </div>
         </div>

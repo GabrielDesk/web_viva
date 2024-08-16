@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import i18next from "i18next";
 import {
@@ -39,7 +38,9 @@ export function useTranslation(lng: string, ns: string, options?: object) {
   const [cookies, setCookie] = useCookies([cookieName]);
   const ret = useTranslationOrg(ns, options);
   const { i18n } = ret;
+
   if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
+    // i18n.changeLanguage(lng).catch((err) => console.error(err));
     i18n.changeLanguage(lng);
   } else {
     const [activeLng, setActiveLng] = useState(i18n.resolvedLanguage);
@@ -50,8 +51,16 @@ export function useTranslation(lng: string, ns: string, options?: object) {
     }, [activeLng, i18n.resolvedLanguage]);
 
     useEffect(() => {
-      if (!lng || i18n.resolvedLanguage === lng) return;
-      i18n.changeLanguage(lng);
+      if (!lng || typeof lng !== "string") {
+        console.error("Invalid language code:", lng);
+        return;
+      }
+
+      if (i18n.resolvedLanguage !== lng) {
+        i18n.changeLanguage(lng).catch((err) => {
+          console.error("Error changing language:", err);
+        });
+      }
     }, [lng, i18n]);
 
     useEffect(() => {
